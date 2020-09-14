@@ -1,0 +1,23 @@
+.Newpost{
+    margin: 20px;
+    border: 1px solid black;
+    background-color: lightgray;
+    text-align: center;
+    align-items: center;
+    height: 500px;
+    width: 1000px;
+    box-shadow: 3px 5px 5px lightpink;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.AddbuttonFullPost{
+    margin: 20px;
+    border: none;
+    background-color: chartreuse;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+}

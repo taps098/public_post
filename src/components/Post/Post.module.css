@@ -1,0 +1,16 @@
+.Post{
+    margin: 20px;
+    height: 200px;
+    width: 250px;
+    box-shadow: 3px 5px 5px lightpink;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+    /*display: inline-block;*/
+    background-color: lightgray;
+    align-items: center;
+    display: inline-grid;
+}
+.Author{
+    color: deeppink;
+}

@@ -1,0 +1,42 @@
+.Fullpost{
+    margin: 20px;
+    border: 1px solid deeppink;
+    height: 250px;
+    width: 1000px;
+    box-shadow: 3px 5px 5px lightpink;
+    background-color: lightgray;
+    align-items: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.DelbuttonFullPost{
+    background-color: darkorange;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    /*position: absolute;*/
+    /*bottom: 1px;*/
+}
+
+.ClickPostParagraph{
+    text-align: center;
+    animation:blinking 1.5s infinite;
+    font-size: 20px;
+}
+@keyframes blinking{
+    0%{   color: deeppink;   }
+    47%{   color: lightpink; }
+    62%{   color: transparent; }
+    97%{   color:transparent; }
+    100%{  color: lightpink;   }
+}
+.Loading{
+    text-align: center;
+    font-weight: bold;
+    color: deeppink;
+}
