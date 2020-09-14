@@ -31,6 +31,9 @@ class Newpost extends Component{
         if(this.state.submitted){
             redirect = <Redirect to = '/'/>;
         }
+        
+
+        
         return (
             <div className={styles.Newpost}>
                 {redirect}
