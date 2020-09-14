@@ -9,7 +9,7 @@ import {Link} from 'react-router-dom';
 class PostsFullPost extends Component{
 
     state ={
-        posts: [{name: "Taps", deatils: "something"}],
+        posts: [{name: "Taps", deatils: "something", a: 2, b: 3}],
         selectedPostId : null,
         error : false
     }
