@@ -37,7 +37,7 @@ class Newpost extends Component{
         return (
             <div className={styles.Newpost}>
                 {redirect}
-                <p>Add a new post here </p>
+                <h4>Add a new post here </h4>
                 <label>
                     <h5>Title</h5>
                     <br/>

@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import Post from '../../components/Post/Post';
-import Fullpost from "../../components/Fullpost/Fullpost";
+// import Fullpost from "../../components/Fullpost/Fullpost";
 import Axios from "axios";
 import styles from "./PostsFullPost.module.css";
 import {Link} from 'react-router-dom';
@@ -18,6 +18,8 @@ class PostsFullPost extends Component{
         // console.log(this.props);
         Axios.get('https://jsonplaceholder.typicode.com/posts')
             .then(response => {
+                // console.log('New data from reqres',response.data);
+                // const UpdatedPost = response.data;
                 const posts = response.data.slice(0,4);
                 const UpdatedPost = posts.map(post =>{
                     return {
@@ -27,7 +29,7 @@ class PostsFullPost extends Component{
 
                 })
                 this.setState({posts : UpdatedPost})
-                console.log(this.props.posts);
+                // console.log('printing the data in posts NOW',this.props.posts);
             }).catch(error =>{
             console.log('Printing error- ',error);
             // this.setState({error: true});

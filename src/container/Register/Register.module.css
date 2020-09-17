@@ -1,0 +1,29 @@
+.Register{
+    /*padding: 20px;*/
+    /*width: 50%;*/
+    border: 1px solid #ddd;
+}
+.Register label{
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+.Register input{
+    margin: 20px;
+}
+
+.SubmitButton{
+    margin: auto;
+    border: none;
+    background-color: chartreuse;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    display: flex;
+    font-size: 16px;
+    align-items: center;
+    box-shadow: 3px 5px 5px lightpink;
+}
