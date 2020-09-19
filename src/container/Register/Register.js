@@ -1,8 +1,10 @@
 import React from "react";
 import styles from "./Register.module.css";
 import 'antd/dist/antd.css';
-import { Form, Input, Button, Checkbox,Row, Col  } from 'antd';
+import { Form, Input, Checkbox,Row, Col } from 'antd';
 import Axios from "axios";
+
+const { TextArea } = Input;
 
 class Register extends React.Component{
     state = {
@@ -53,11 +55,13 @@ class Register extends React.Component{
                     </label>
                     <label>
                         <h5>About:</h5>
-                        <textarea value={this.state.about} cols="40" rows="5" onChange={event => {this.setState({about : event.target.value})}}/>
+                        <TextArea value={this.state.about} cols="40" rows="5" onChange={event => {this.setState({about : event.target.value})}}/>
                     </label>
-                    {/*<Button type="submit" Value = 'Submit'>Submit</Button>*/}
-                    <input type="submit" value='Submit'/>
-                    {/*<Button type="primary">Submit</Button>*/}
+                    <Form.Item style={{ width: 100 , display: 'flex' ,marginLeft: '300px'}}>
+                        <Input type="submit" value='Submit'/>
+                    </Form.Item>
+                    {/*<input type="submit" value='Submit'/>*/}
+
                 </Form>
                 </Col>
             </Row>

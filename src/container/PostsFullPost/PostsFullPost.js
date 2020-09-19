@@ -4,6 +4,8 @@ import Post from '../../components/Post/Post';
 import Axios from "axios";
 import styles from "./PostsFullPost.module.css";
 import {Link} from 'react-router-dom';
+import Page from '../Pagination/Pagination';
+import InfiniteScrolling from "../InfiniteScrolling/InfiniteScrolling";
 
 
 class PostsFullPost extends Component{
@@ -11,38 +13,58 @@ class PostsFullPost extends Component{
     state ={
         posts: [],
         selectedPostId : null,
-        error : false
+        error : false,
+        page : 1
     }
 
     componentDidMount = () =>{
-        // console.log(this.props);
-        Axios.get('https://jsonplaceholder.typicode.com/posts')
+        Axios.get('https://reqres.in/api/users?page=1&per_page=2')
             .then(response => {
-                // console.log('New data from reqres',response.data);
-                // const UpdatedPost = response.data;
-                const posts = response.data.slice(0,4);
-                const UpdatedPost = posts.map(post =>{
-                    return {
-                        ...post,
-                        Author : 'Taps'
-                    }
-
-                })
+                console.log('New data from reqres',response.data.data);
+                const UpdatedPost = response.data.data;
                 this.setState({posts : UpdatedPost})
-                // console.log('printing the data in posts NOW',this.props.posts);
+                this.setState({page : this.state.page + 1})
             }).catch(error =>{
             console.log('Printing error- ',error);
-            // this.setState({error: true});
         })
     }
 
 
-
     ClickPostHandler = (postId) =>{
-        // console.log('single post is clicked', {postId});
         this.setState({selectedPostId: postId});
-        // console.log('updated state :',this.state.selectedPostId);
     }
+
+    ClickPrevHandler= () =>{
+        console.log('Previous is clicked the page is ', this.state.page);
+        Axios.get('https://reqres.in/api/users?page='+this.state.page+'&per_page=2')
+            .then(response => {
+                console.log('In function ClickPrevHandler',response.data.data);
+                const UpdatedPost = response.data.data;
+                this.setState({posts : UpdatedPost})
+                this.state.page > 1 ?
+                    this.setState({page : this.state.page - 1})
+                    : this.setState({page : this.state.page})
+
+            }).catch(error =>{
+            console.log('Printing error- ',error);
+        })
+    }
+    ClickNextHandler= () =>{
+        console.log('Next is clicked page is', this.state.page );
+        Axios.get('https://reqres.in/api/users?page='+this.state.page+'&per_page=2')
+            .then(response => {
+                console.log('In function ClickNextHandler',response.data.data);
+                const UpdatedPost = response.data.data;
+                this.setState({posts : UpdatedPost})
+                this.state.page < 6 ?
+                this.setState({page : this.state.page + 1})
+                    : this.setState({page : this.state.page})
+            }).catch(error =>{
+            console.log('Printing error- ',error);
+        })
+    }
+
+
 
 
 
@@ -54,8 +76,9 @@ class PostsFullPost extends Component{
                 return (
                     <Link to = {'/'+item.id} key ={item.id}>
                         <Post
-                              passingTitle ={item.title}
-                              Author = {item.Author}
+                            pic = {item.avatar}
+                              passingTitle ={item.email}
+                              Author = {item.first_name}
                               clickPost = {() => this.ClickPostHandler(item.id)}
                         />
                     </Link>
@@ -65,17 +88,17 @@ class PostsFullPost extends Component{
         }
 
 
-        
-
         return (
             <div>
                 <div className={styles.Page}>
                     {posts}
                 </div>
-                {/*<div>*/}
-                {/*    <Fullpost id = {this.state.selectedPostId}*/}
-                {/*    />*/}
-                {/*</div>*/}
+                <br/>
+                <Page
+                    onClickPrev = {this.ClickPrevHandler}
+                    onClickNext = {this.ClickNextHandler}
+                />
+                {/*<InfiniteScrolling/>*/}
             </div>
 
 
