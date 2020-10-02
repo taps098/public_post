@@ -1,0 +1,33 @@
+.Box{
+    height: 500px;
+    width: 400px;
+    box-shadow: 2px 3px 3px 3px grey;
+    display: inline-block;
+    padding: 10px;
+    margin: 20px;
+    cursor: pointer;
+    text-align: center;
+}
+.Box:hover{
+    /*border : 1px solid grey;*/
+    background-color: lightgrey;
+}
+.Allbox{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.button{
+    border : none;
+    background-color: white;
+    padding: 15px;
+    margin: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+.Allbutton{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
